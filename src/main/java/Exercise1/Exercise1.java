@@ -23,7 +23,7 @@ public class Exercise1 {
     public static int countRectangles(Point[] points) {
         HashSet<Point> PointSet = new HashSet<>();
         for (Point point : points) {
-            PointSet.add(point);        
+            PointSet.add(point);     //Am adaugat toate punctele noastre intr-o colectie unica de date numita HashSet de tip Point    
         }
 //        System.out.println(PointSet);
         int count = 0;
@@ -33,16 +33,16 @@ public class Exercise1 {
             Point p1 = points[i];
             for (int j = i+1; j < points.length; j++) {
                 Point p2 = points[j];
-                if (p1.x != p2.x && p1.y != p2.y) {
-                    Point p3 = new Point(p1.x, p2.y);
+                if (p1.x != p2.x && p1.y != p2.y) { // Verificam daca punctele noastre sunt diferite pentru a lua punctele ce formeaza diagonala dreptunghiului
+                    Point p3 = new Point(p1.x, p2.y); //Luam punctele opuse punctelor ce formeaza diagonala dreptunghiului
                     Point p4 = new Point(p2.x, p1.y);
-                    if (PointSet.contains(p3) && PointSet.contains(p4)) {
+                    if (PointSet.contains(p3) && PointSet.contains(p4)) { // Daca punctele respective exista in colectia noastra de date incrementam numarul de dreptunghiuri ce se pot forma
                         count++;
                     }
                 }
             }
         }
-        return count/2;
+        return count/2; // impartim la 2 pentru a elimina dreptunghiurile duplicate
     }
 
     
